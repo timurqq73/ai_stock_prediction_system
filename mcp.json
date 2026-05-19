@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "stock-prediction-system": {
+      "command": "python",
+      "args": [
+        "-m",
+        "mcp_server"
+      ],
+      "env": {
+        "PYTHONPATH": ".",
+        "PYTHONUNBUFFERED": "1"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "analyze_stock",
+        "get_stock_fundamentals",
+        "get_stock_technical",
+        "get_stock_sentiment",
+        "get_macro_indicators",
+        "health_check",
+        "list_available_tickers"
+      ]
+    }
+  }
+}

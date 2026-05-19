@@ -7,6 +7,7 @@ import requests
 import json
 import asyncio
 import os
+import time
 from typing import Dict, Any
 from datetime import datetime
 import logging
@@ -166,7 +167,7 @@ class CloudOrchestrator:
             except Exception as e:
                 if attempt < max_retries - 1:
                     logger.warning(f"Retry {attempt + 1} for {agent_url}: {e}")
-                    await asyncio.sleep(1)
+                    time.sleep(1)  # Changed from await asyncio.sleep(1)
                     continue
                 
                 logger.error(f"Error calling agent at {agent_url}: {e}")

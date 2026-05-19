@@ -25,3 +25,17 @@ services:
       system:
         condition: service_healthy
     restart: unless-stopped
+
+
+  mcp-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.system
+    env_file:
+      - .env
+    ports:
+      - "8007:8007"
+    command: python -m mcp_server
+    restart: unless-stopped
+    depends_on:
+      - system
